@@ -25,7 +25,9 @@ app.controller('PlayerController', function($scope, $http) {
 		mthod: 'JSONP',
 		url: nprUrl + '&apiKey=' + apiKey + '&callback=JSON_CALLBACK'
 	}).success(function(data, status) {
-		// Have JSON list of NPR stories from API now...
+		// On success, store the list of stories 
+		// from the API response on the scope
+		$scope.programs = data.list.story;
 	}).error(function(data, status) {
 		// Some error occurred
 	});
